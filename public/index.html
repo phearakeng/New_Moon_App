@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/app.css">
-    <title>Moon App</title>
-    <script src="js/app.js" defer></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/app.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="./js/login.js" defer ></script>
 </head>
 <body>
-    <div class="wrapper">
-        <section class="chat-area">
-    <!-- HEADER -->
-            <header>
-                <a href="../html/send.html" class="back-icon"><i class="fa fa-arrow-left"></i></a>
-                <!-- <img src="../image/tok.jpg.jpeg"> -->
-                <div class="details">
-                    <span>Zeii Sart</span>
-                    <p>Active now</p>
-                </div>
-            </header>
-    <!-- HEADER -->
-    <div class="content_Chat">
-
+    <div class="container">
+        <div class="header">
+            <p>MoonChat</p>
+        </div>
+        <div class="form-input">
+            <div class="username">
+                <input type="text" id="username" placeholder="UserName">
+            </div>
+            <div class="password">
+                <input type="password" id="pass" placeholder="Password">
+            </div>
+            <div class="info">
+                
+            </div>
+            <div class="login-cancle">
+                <button id="chat">Chat</button>
+                <h4>OR</h4>
+                <button id="cancle">Cancle</button>
+            </div>
+        </div>
     </div>
-    <!-- SEND INFO -->
-            <form action="#" class="typing-area">
-                <button><i class="fa fa-bars"></i></button>
-                <button><i class="fa fa-bold" id="bold"></i></button>
-                <button><i class="fa fa-italic" id="italic"></i></button>
-                <button id="emoji">&#128512;</button>
-                <input type="text" placeholder="Enter message..." id="textArea">
-                <button><i class="fa fa-picture-o" id="picture"></i></button>
-                <!-- <button><i class="fa fa-camera" id="camera"></i></button> -->
-                <button><i class="fa fa-microphone" id="audio"></i></button>
-                <button><i class="fa fa-paper-plane" id="paper_plane"></i></button>
-            </form>
-    <!-- SEND INFO -->
-        </section>
 </body>
 </html>
