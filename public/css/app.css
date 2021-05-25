@@ -25,13 +25,32 @@ body {
     box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
                 0 23px 64px -48px rgba(0,0,0,0.5);
     border-radius: 10px 10px 10px 10px;
+    background-image: url(../images/moon.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container .header p {
     text-align: center;
     color: #428af5;
     font-weight: 700;
+    font-size: 25px;
+    
+}
+
+.container .header h4  {
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.container .header h2 {
+    color: #AADE1F;
     font-size: 30px;
+    text-align: center;
+    padding: 10px;
     border-bottom: 1px solid white;
 }
 
@@ -51,6 +70,16 @@ body {
     outline: none;
     border-bottom: 2px solid #E107D4;
     background: #8385d6;
+    border-radius: 40px;
+    margin: 20px;
+}
+
+#username {
+    font-size: 20px;
+}
+
+#pass {
+    font-size: 20px;
 }
 
 .password {
@@ -65,18 +94,8 @@ body {
     outline: none;
     border-bottom: 2px solid #E107D4;
     background: #8385d6;
-}
-
-.info {
-    background: none;
-    padding: 10px;
-    margin: 5px;
-    text-align: center;
-    border-bottom: 1px solid white;
-}
-
-.info {
-    color: red;
+    border-radius: 40px;
+    margin: 20px;
 }
 
 .login-cancle {
@@ -106,6 +125,15 @@ body {
     color: black;
     font-size: 15px;
     border-radius: 50px;
+    margin: 20px;
+}
+
+.username ::placeholder {
+    color: #42f5e0;
+}
+
+.password ::placeholder {
+    color: #42f5e0;
 }
 
 .login-cancle #cancle {
@@ -115,6 +143,7 @@ body {
     color: black;
     font-size: 15px;
     border-radius: 50px;
+    margin: 20px;
 }
 
 .login-cancle #chat:hover {
@@ -136,7 +165,7 @@ body {
 .wrapper .chat-area header,
 .content_Chat,
 .typing-area {
-    width: 80%;
+    width: 50%;
     margin: auto;
     box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
                 0 23px 64px -48px rgba(0,0,0,0.5);
@@ -241,51 +270,25 @@ body {
     padding: 10px;
     margin-left: auto;
     cursor: pointer;
-    /* color: white; */
-}
-
-.notification i {
-    background-color: #ff8000;
-    color: white;
-    text-decoration: none;
-    padding: 7px 8px;
-    position: relative;
-    display: inline-block;
-    border-radius: 2px;
-}
-
-.notification  span i{
-    font-size: 25px;
-}
-
-.notification .badge {
-    position: absolute;
-    margin-right: 20px;
-    top: 27px;
-    padding: 2px 7px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
 }
 
 /* =========================|NITIFICATION|========================= */
-
 
 .chat-area .typing-area {
     padding: 18px 10px;
     display: flex;
     justify-content: space-between;
-    /* background: #8000ff; */
     background-color: DodgerBlue;
+    width: 50%;
 }
 
 .typing-area input {
     height: 45px;
-    width: 60%;
+    width: 50%;
     font-size: 17px;
     border: 1px solid rgb(241, 10, 10);
     padding: 0 13px;
-    border-radius: 5px;
+    border-radius: 50px;
     outline: none;
 }
 
@@ -298,8 +301,6 @@ body {
     border-radius: 100px;
     cursor: pointer;
     border: 1px solid rgb(85, 255, 6);
-    /* color: white; */
-    /* background: rgba(211, 226, 8, 0.897); */
 }
 
 /* ================== |Chat| ================== */
@@ -307,10 +308,11 @@ body {
 .content_Chat {
     overflow-y: auto;
     height: 35vw;
-    background:#8000ff;
+    background:#8000ff2d;
     background-position: center;
     background-size: unset;
     border-bottom: 1px solid red;
+    width: 50%;
 }
 
 .content_Chat::-webkit-scrollbar {

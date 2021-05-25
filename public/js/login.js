@@ -1,47 +1,57 @@
-const IP = "192.168.88.32";
-const PORT = 3000;
-const LOGIN_URL = "http://" + IP + ":" + PORT + "/login";
-
 // |Login| //
-function login() {
+let loginProcess = (response, user_name, user_pass) => {
+    let USER_REQUEST = response.data;
+    let isLogined = false;
+    for (let user of USER_REQUEST) {
+        if (user.username === user_name && user.password === user_pass && !isLogined) {
+            window.location.href = rootEntPoint + "/chat.html";
+            isLogined = true;
 
-    let USER_REQUEST = LOGIN_URL + "?username=" + username.value+"&" + "password=" + password.value;
-    axios.get(LOGIN_URL).then((response) => {
-        let isValid = response.data;
-        for (let user of isValid) {
-            console.log(user);
-        }
-        let text = "Login feiled!!";
-        let color = "red";
-    });
-    let result = false;
-    for (let get_User of users) {
-        if (get_User.name === user_name && get_User.user_pass) {
-            result = true;
+            let Data_User_Object = {username: user_name, password: user_pass};
+            keep_User_Data.push(Data_User_Object);
+            console.log(keep_User_Data);
+            localStorage.setItem("username", JSON.stringify(keep_User_Data));
         }
     }
-    response.send(result);
+    
+    if (isLogined) 
+    {
+        alert("Login Succesfully");
+    }
+    else
+    {
+        alert("Login Failed!!!");
+    }
 }
+
+let keep_User_Data = [];
+
+// ===================| GET DATA FROM INPUT |==================== //
+let login =  (e) => {
+    let get_user_name = document.querySelector("#username").value;
+    let get_user_pass = document.querySelector("#pass").value;
+
+    const LOGIN_URL = rootEntPoint + "/login";
+    axios
+    .get(LOGIN_URL)
+    .then(response => loginProcess(response, get_user_name, get_user_pass))
+}
+
 const btn_chat = document.querySelector("#chat");
+const rootEntPoint = "http://192.168.88.26:3000"
 btn_chat.addEventListener("click", login);
 
-// Display Data //
-function displayData() {
-    
-}
+// ===================| BTN CANCLE |==================== //
+// function Cancle(cancle) {
+//     if (cancle === "Cancle") {
+//         window.location.href = rootEntPoint;
+//     }
+// }
+// const btn_cancle = document.querySelector("#cancle");
+// btn_cancle.addEventListener("click", Cancle);
 
-// Load Data //
-function loadData() {
-    axios.get(LOGIN_URL).then((response) => {
-        displayData(response.data);
-        console.log(response.data);
-    })
-}
+// ===================| Set To Localstorage |==================== //
 
-// Main //
-const get_user_name = document.querySelector("#username");
-const get_user_pass = document.querySelector("#pass");
-const info_alert = document.querySelector(".info");
-const sentences = document.createElement("p");
-info_alert.appendChild(sentences);
-const btn_cancle = document.querySelector("#cancle");
+
+
+// ===================| Set To Localstorage |==================== //
