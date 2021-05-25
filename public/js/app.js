@@ -30,13 +30,14 @@ function displayData(messages) {
     if (chat_box !== null) {
         chat_box.remove();
     }
+    
+    chat_box = document.createElement("div");
+    chat_box.className = "chat-box";
+    messageContainer.appendChild(chat_box);
 
     for (let message of messages) {
         if (message.get_input !== "" && message.get_input !== null) {
-            chat_box = document.createElement("div");
-            chat_box.className = "chat-box";
-            messageContainer.appendChild(chat_box);
-        
+            
             let chat_outgoing = document.createElement("div");
             chat_outgoing.className = "chat outgoing";
             chat_box.appendChild(chat_outgoing);
@@ -46,13 +47,12 @@ function displayData(messages) {
             chat_outgoing.appendChild(detailes);
         
             let P = document.createElement("p");
+            P.textContent = message.messages;
             detailes.appendChild(P);
             
             let images = document.createElement("img");
             // images.src = "";
             chat_outgoing.appendChild(images);
-            
-            P.textContent = message.messages;
         }
     }
     get_input.value = "";
