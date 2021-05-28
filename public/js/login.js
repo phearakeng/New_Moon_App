@@ -4,23 +4,28 @@ let loginProcess = (response, user_name, user_pass) => {
     let isLogined = false;
     for (let user of USER_REQUEST) {
         if (user.username === user_name && user.password === user_pass && !isLogined) {
-            window.location.href = rootEntPoint + "/chat.html";
             isLogined = true;
 
-            let Data_User_Object = {username: user_name, password: user_pass};
+            let Data_User_Object = {    
+                                        username: user_name, 
+                                        password: user_pass    
+                                    };
+
+
             keep_User_Data.push(Data_User_Object);
             console.log(keep_User_Data);
-            localStorage.setItem("username", JSON.stringify(keep_User_Data));
+            localStorage.setItem("UserName", JSON.stringify(keep_User_Data));
         }
     }
     
     if (isLogined) 
     {
-        alert("Login Succesfully");
+        swal("Login succesfully", "Chat Now", "success");
+        window.location.href = rootEntPoint + "/chat.html";
     }
     else
-    {
-        alert("Login Failed!!!");
+    {   
+        swal("Login failed!", "Please try again!", "error");
     }
 }
 
@@ -38,8 +43,11 @@ let login =  (e) => {
 }
 
 const btn_chat = document.querySelector("#chat");
-const rootEntPoint = "http://192.168.88.26:3000"
+const rootEntPoint = "http://192.168.88.15:3000"
 btn_chat.addEventListener("click", login);
+
+// ===================||=================== //
+
 
 // ===================| BTN CANCLE |==================== //
 // function Cancle(cancle) {

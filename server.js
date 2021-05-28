@@ -1,18 +1,12 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const FS = require("fs");
 
 let messageOf_data = []
 
-let users = [
-    { username: "PHEARAK", password: "00000" },
-    { username: "THIN", password: "11111" },
-    { username: "SARETH", password: "22222" },
-    { username: "VONTHORN", password: "33333" },
-    { username: "NHORK", password: "44444" },
-    { username: "THEAV", password: "55555" }
-];
-
+let users = JSON.parse(FS.readFileSync("save-data.json"));
+console.log(users);
 
 app.listen(process.env.PORT || port, () => {
     console.log("server running...");
@@ -36,3 +30,4 @@ app.get("/messages", (request, response) => {
 app.get("/login", (request, response) => {
     response.send(users);
 })
+

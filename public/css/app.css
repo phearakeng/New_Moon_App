@@ -40,10 +40,14 @@ body {
 }
 
 .container .header h4  {
-    color: white;
+    color: red;
     text-align: center;
-    padding: 15px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.header h4 {
+    font-size: 50px;
 }
 
 .container .header h2 {
@@ -126,6 +130,7 @@ body {
     font-size: 15px;
     border-radius: 50px;
     margin: 20px;
+    cursor: pointer;
 }
 
 .username ::placeholder {
@@ -144,6 +149,7 @@ body {
     font-size: 15px;
     border-radius: 50px;
     margin: 20px;
+    cursor: pointer;
 }
 
 .login-cancle #chat:hover {
@@ -171,6 +177,36 @@ body {
                 0 23px 64px -48px rgba(0,0,0,0.5);
 }
 
+header .icon-button {
+    margin-left: auto;
+}
+
+.icon-button {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    color: #333333;
+    background: #dddddd;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+}
+
+.icon-button__badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: red;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+}
+
 .chat-area header {
     display: flex;
     align-items: center;
@@ -195,6 +231,17 @@ body {
 .chat-area header span {
     font-size: 17px;
     font-weight: 500;
+}
+
+.chat-area .details span {
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.chat-area .details p {
+    color: rgb(35, 240, 35);
+    font-weight: 400;
 }
 
 .chat-box {
@@ -252,12 +299,14 @@ body {
     margin-left: 5px;
     max-width: calc(100% - 130px);
     margin-right: auto;
+    display: flex;
 }
 
 .incoming .details p {
     background: rgba(255, 11, 2, 0.603);
     color: rgb(255, 255, 255);
     border-radius: 18px 18px 18px 0;
+    margin-left: 5px;
 }
 
 /* =========================SEND MEASSGAE========================= */
@@ -280,6 +329,10 @@ body {
     justify-content: space-between;
     background-color: DodgerBlue;
     width: 50%;
+}
+
+.chat-area .typing-area #emoji {
+    font-size: 20px;
 }
 
 .typing-area input {
@@ -318,3 +371,15 @@ body {
 .content_Chat::-webkit-scrollbar {
     width: 0px;
 }
+
+/* Alert
+
+.swal-text {
+    background-color: #FEFAE3;
+    padding: 17px;
+    border: 1px solid #F0E1A1;
+    display: block;
+    margin: 22px;
+    text-align: center;
+    color: #61534e;
+  } */
