@@ -37,6 +37,11 @@ let register = (e) => {
 }
 
 const chat_btn = document.querySelector("#chat_hear");
-const userEntPoint = "http://192.168.88.15:3000"
+const userEntPoint = "http://192.168.88.5:3000"
 chat_btn.addEventListener("click", register);
+
+function cancel_hear(cancle) {
+    window.location.href = "goigle.com";
+}
 const cancle_btn = document.querySelector("#cancle_hear");
+cancle_btn.addEventListener("click", cancel_hear)

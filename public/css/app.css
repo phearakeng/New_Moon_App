@@ -211,7 +211,7 @@ header .icon-button {
     display: flex;
     align-items: center;
     padding: 18px 30px;
-    background-color: DodgerBlue;
+    background-color: #FE00A4;
     border-radius: 15px 15px 0 0;
     border-bottom: 1px solid red;
 }
@@ -327,7 +327,7 @@ header .icon-button {
     padding: 18px 10px;
     display: flex;
     justify-content: space-between;
-    background-color: DodgerBlue;
+    background-color: #FE00A4;
     width: 50%;
 }
 
@@ -360,8 +360,8 @@ header .icon-button {
 
 .content_Chat {
     overflow-y: auto;
-    height: 35vw;
-    background:#8000ff2d;
+    height: 80vh;
+    background:#4f08d391;
     background-position: center;
     background-size: unset;
     border-bottom: 1px solid red;
@@ -371,15 +371,3 @@ header .icon-button {
 .content_Chat::-webkit-scrollbar {
     width: 0px;
 }
-
-/* Alert
-
-.swal-text {
-    background-color: #FEFAE3;
-    padding: 17px;
-    border: 1px solid #F0E1A1;
-    display: block;
-    margin: 22px;
-    text-align: center;
-    color: #61534e;
-  } */

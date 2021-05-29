@@ -43,20 +43,18 @@ let login =  (e) => {
 }
 
 const btn_chat = document.querySelector("#chat");
-const rootEntPoint = "http://192.168.88.15:3000"
+const rootEntPoint = "http://192.168.88.5:3000"
 btn_chat.addEventListener("click", login);
 
 // ===================||=================== //
 
 
 // ===================| BTN CANCLE |==================== //
-// function Cancle(cancle) {
-//     if (cancle === "Cancle") {
-//         window.location.href = rootEntPoint;
-//     }
-// }
-// const btn_cancle = document.querySelector("#cancle");
-// btn_cancle.addEventListener("click", Cancle);
+function Cancle(cancle) {
+    window.location.href = "../sign_up.html";
+}
+const btn_cancle = document.querySelector("#cancle");
+btn_cancle.addEventListener("click", Cancle);
 
 // ===================| Set To Localstorage |==================== //
 

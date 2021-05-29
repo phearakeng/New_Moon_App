@@ -1,5 +1,5 @@
 
-const IP = "192.168.88.15";
+const IP = "192.168.88.5";
 const PORT = 3000;
 const GET_MESSAGES = "http://" + IP + ":" + PORT + "/messages";
 const POST_MESSAGE = "http://" + IP + ":" + PORT + "/message";
@@ -20,7 +20,6 @@ Detailes.appendChild(active_now);
 let USER = "";
 for (let custom of storeName_OfUser) {
     USER = custom.username;
-    console.log(USER);
     span.textContent = USER;
     span.style.fontSize = "20px";
     span.style.color = "#daff05";
@@ -62,7 +61,8 @@ function displayData(messages) {
     messageContainer.appendChild(chat_box);
 
     for (let message of messages) {
-        if (message.get_input !== "" && message.get_input !== null) {
+       
+        // if (message.get_input !== "" && message.get_input !== null) {
 
             // =====================| Main |===================== //
             let chat_outgoing = document.createElement("div");
@@ -81,15 +81,15 @@ function displayData(messages) {
             let img_reciever = document.createElement("img");
 
             // =====================| Chat Sender |===================== //
-            if (message.username === USER) {
-                console.log(message);
+            if (messages.username === USER) {
                 sender.textContent = message.messages;
-                sender.style.background = "red";
+                sender.style.background = "#ab0a0a";
                 img_sender.src = "../images/PHEARA_ENG.jpg"
                 detaile.appendChild(img_sender);
                 detaile.appendChild(sender);
                 chat_outgoing.appendChild(detaile);
                 chat_box.appendChild(chat_outgoing);
+
                 // ======================| BOLD |====================== //
                 if (message.Bold === true) {
                     sender.style.fontWeight = "normal";
@@ -105,14 +105,12 @@ function displayData(messages) {
                 else {
                     sender.style.fontStyle = "italic";
                 }
-
-                // ======================| BOLD |====================== //
             }
             // =====================| Chat Receiver |===================== //
             else {
                 receiver.textContent = message.messages;
-                receiver.style.background = "blue";
-                img_reciever.src = "../images/PHEARA_ENG.jpg"
+                receiver.style.background = "#279908";
+                img_reciever.src = "../images/PHEARA_ENG.jpg";
                 detaile.appendChild(img_reciever);
                 detaile.appendChild(receiver);
                 chat_incoming.appendChild(detaile);
@@ -132,7 +130,7 @@ function displayData(messages) {
                     receiver.style.fontStyle = "italic";
                 }
             }
-        }
+        
     }
     get_input.value = "";
 }
@@ -143,8 +141,7 @@ function loadData() {
             displayData(response.data);
         })
         .catch((error) => {
-
-            console.log("error :" + error);
+            
         })
 }
 
