@@ -1,8 +1,8 @@
 
-const IP = "192.168.88.5";
-const PORT = 3000;
-const GET_MESSAGES = "http://" + IP + ":" + PORT + "/messages";
-const POST_MESSAGE = "http://" + IP + ":" + PORT + "/message";
+const IP = "https://chat-moon.herokuapp.com";
+// const PORT = 3000;
+const GET_MESSAGES =  IP + "/messages";
+const POST_MESSAGE =  IP + "/message";
 
 
 // =================| Bring User Name to Display On Header Of Chat |================== //
@@ -29,7 +29,10 @@ for (let custom of storeName_OfUser) {
 // ==================================| Display Message |================================== // 
 function postMessage(event) {
     // event.preventDefault();
-    let all_data = { messages: get_input.value, Italic: isClick_Italic, Bold: isClick_bold };
+    if (isTrue === false) {
+        let play = document.querySelector("#audio").play();
+    }
+    let all_data = { messages: get_input.value, user: USER, bg_mess_color: bg_color.value, Italic: isClick_Italic, Bold: isClick_bold };
     console.log(all_data);
 
     axios.post(POST_MESSAGE, all_data)
@@ -45,16 +48,20 @@ btnSend.addEventListener("click", postMessage);
 
 // ================| Main |=============== //
 const get_input = document.querySelector("#textArea");
+const bg_color = document.querySelector("#color");
 const messageContainer = document.querySelector(".content_Chat");
 
-// ==============================| DISPLAY DATA |============================== //
 
+// ==============================| DISPLAY DATA |============================== //
+let isTrue = true;
 function displayData(messages) {
+   
     console.log(messages);
     let chat_box = document.querySelector(".chat-box");
     if (chat_box !== null) {
         chat_box.remove();
     }
+    messageContainer.style.background = bg_color.value;
 
     chat_box = document.createElement("div");
     chat_box.className = "chat-box";
@@ -62,33 +69,22 @@ function displayData(messages) {
 
     for (let message of messages) {
        
-        // if (message.get_input !== "" && message.get_input !== null) {
-
+        if (message.get_input !== "" && message.get_input !== null) {
             // =====================| Main |===================== //
             let chat_outgoing = document.createElement("div");
             chat_outgoing.className = "chat outgoing";
-
-            let chat_incoming = document.createElement("div");
-            chat_incoming.className = "chat incoming";
 
             let detaile = document.createElement("div");
             detaile.className = "details";
 
             let sender = document.createElement("p");
+            sender.textContent = message.messages;
             let receiver = document.createElement("p");
 
-            let img_sender = document.createElement("img");
-            let img_reciever = document.createElement("img");
-
             // =====================| Chat Sender |===================== //
-            if (messages.username === USER) {
-                sender.textContent = message.messages;
-                sender.style.background = "#ab0a0a";
-                img_sender.src = "../images/PHEARA_ENG.jpg"
-                detaile.appendChild(img_sender);
-                detaile.appendChild(sender);
-                chat_outgoing.appendChild(detaile);
-                chat_box.appendChild(chat_outgoing);
+            if (message.user === USER) {
+                detaile.style.marginLeft = "auto";
+                sender.style.background = "#8000ff";
 
                 // ======================| BOLD |====================== //
                 if (message.Bold === true) {
@@ -106,15 +102,14 @@ function displayData(messages) {
                     sender.style.fontStyle = "italic";
                 }
             }
+            
             // =====================| Chat Receiver |===================== //
             else {
-                receiver.textContent = message.messages;
-                receiver.style.background = "#279908";
-                img_reciever.src = "../images/PHEARA_ENG.jpg";
-                detaile.appendChild(img_reciever);
-                detaile.appendChild(receiver);
-                chat_incoming.appendChild(detaile);
-                chat_box.appendChild(chat_incoming);
+                isTrue = false;
+                detaile.style.marginLeft = "0px";
+                sender.style.background = "#ff0040";
+
+                // ======================| BOLD |====================== //
                 if (message.Bold === true) {
                     receiver.style.fontWeight = "normal";
                 }
@@ -130,9 +125,13 @@ function displayData(messages) {
                     receiver.style.fontStyle = "italic";
                 }
             }
-        
+            sender.textContent = message.messages;
+            detaile.appendChild(sender);
+            chat_outgoing.appendChild(detaile);
+            chat_box.appendChild(chat_outgoing);
+        }
     }
-    get_input.value = "";
+    
 }
 
 function loadData() {
@@ -195,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
 get_input.addEventListener("keyup", function (event) {
     let count_Message = 0;
     if (event.keyCode === 13) {
-        postMessage();
         count_Message += 1;
+        postMessage();
     }
 })
 
@@ -208,4 +207,4 @@ getNotifications.appendChild(notification);
 
 
 loadData();
-setInterval(loadData, 5000);
+setInterval(loadData, 500);

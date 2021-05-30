@@ -360,14 +360,20 @@ header .icon-button {
 
 .content_Chat {
     overflow-y: auto;
-    height: 80vh;
+    height: 70vh;
     background:#4f08d391;
     background-position: center;
     background-size: unset;
     border-bottom: 1px solid red;
     width: 50%;
+    border: 1px solid yellow;
 }
 
 .content_Chat::-webkit-scrollbar {
     width: 0px;
+}
+
+#color {
+    width: 55px;
+    cursor: pointer;
 }

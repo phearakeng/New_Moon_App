@@ -25,13 +25,14 @@
                 </div>
                 <button type="button" class="icon-button">
                     <span class="material-icons"><i class="fa fa-bell"></i></span>
-                    <span class="icon-button__badge">3</span>
+                    <span class="icon-button__badge"></span>
                 </button>
             </header>
     <!-- HEADER -->
     <div class="content_Chat">
         
     </div>
+    <audio src="./audio/sms.mp3" id="audio" controls style="display: none;"></audio>
     <!-- SEND INFO -->
             <form action="#" class="typing-area">
                 <button><i class="fa fa-bars"></i></button>
@@ -39,7 +40,8 @@
                 <button><i class="fa fa-italic" id="italic"></i></button>
                 <button id="emoji">&#128512;</button>
                 <input type="text" placeholder="Enter message..." id="textArea">
-                <button><i class="fa fa-picture-o" id="picture"></i></button>
+                <!-- <button><i class="fa fa-picture-o" id="picture"></i></button> -->
+                <input type="color" id="color">
                 <!-- <button><i class="fa fa-camera" id="camera"></i></button> -->
                 <button><i class="fa fa-microphone" id="audio"></i></button>
                 <button><i class="fa fa-paper-plane" id="paper_plane"></i></button>

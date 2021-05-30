@@ -43,7 +43,7 @@ let login =  (e) => {
 }
 
 const btn_chat = document.querySelector("#chat");
-const rootEntPoint = "http://192.168.88.5:3000"
+const rootEntPoint = "https://chat-moon.herokuapp.com"
 btn_chat.addEventListener("click", login);
 
 // ===================||=================== //
